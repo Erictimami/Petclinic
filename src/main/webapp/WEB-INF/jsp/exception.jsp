@@ -5,9 +5,9 @@
 <petclinic:layout pageName="error">
 
     <spring:url value="/resources/images/pets.png" var="petsImage"/>
-    <img src="${petsImage}" alt="A cat and a dog"/>
+    <img src="${petsTOTLImage}" alt="hacking"/>
 
-    <h2>Something happened...</h2>
+    <h2>Bug by hacker happened...</h2>
 
     <p>${exception.message}</p>
 
