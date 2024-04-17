@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label "firstAgent"
+    }
 
     stages {
         stage('Git checkout') {
