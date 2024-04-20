@@ -31,9 +31,9 @@ pipeline {
         stage('Deploy to Stage') {
             steps {
                 echo "Deploying our war file into our tomcat Stage server"
-
                 timeout(time: 8, unit: "MINUTES") {
-input message: 'Can i deploy to prod ?', parameters: [choice(choices: ['Yes', 'No'], name: 'Prod-approval')], submitter: 'Anil-admin', submitterParameter: 'admin'        }
+                    input message: 'Can I deploy to prod ?', parameters: [choice(choices: ['Yes', 'No'], name: 'Pro- approval')], submitter: 'Anil-admin'
+                }
                 sshagent(['tomcat-pipeline']) {
                      sh "scp -o StrictHostKeyChecking=no target/petclinic.war tomcat@3.21.185.94:/opt/tomcat/webapps"
                 }
