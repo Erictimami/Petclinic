@@ -18,7 +18,7 @@ pipeline {
         }
          stage('Test') {
             steps {
-                echo "running test on marven build"
+                echo "running test on marven building"
                 sh "mvn clean test"
             }
         }
