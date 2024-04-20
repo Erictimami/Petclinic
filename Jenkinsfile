@@ -28,14 +28,6 @@ pipeline {
                 sh "mvn clean install"
             }
         }
-        stage('Deploy to DEV') {
-            steps {
-                echo " deploying our war file through pipeline until the tomcat server"
-                sshagent(['tomcat-pipeline']) {
-                    sh "scp -o StrictHostKeyChecking=no target/petclinic.war tomcatuser@3.21.185.94:/opt/tomcat/webapps"
-                }
-            }
-        }
         stage('Deploy to Stage') {
             steps {
                 echo "Deploying our war file into our tomcat Stage server"
