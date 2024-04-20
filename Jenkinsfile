@@ -48,16 +48,5 @@ input message: 'Can i deploy to prod ?', parameters: [choice(choices: ['Yes', 'N
             }
         }    
         
-        stage('Deploy to Prod') {
-            steps {
-                echo "Deploying our war file into our tomcat prod server"
-
-                timeout(time: 8, unit: "MINUTES") {
-input message: 'Can i deploy to prod ?', parameters: [choice(choices: ['Yes', 'No'], name: 'Prod-approval')], submitter: 'Anil-admin', submitterParameter: 'admin'        }
-                sshagent(['tomcat-pipeline']) {
-                     sh "scp -o StrictHostKeyChecking=no target/petclinic.war tomcat@3.21.185.94:/opt/tomcat/webapps"
-                }
-            }
-        }  
     }
 }
